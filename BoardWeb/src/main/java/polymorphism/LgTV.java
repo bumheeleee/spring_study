@@ -5,13 +5,11 @@ public class LgTV implements TV{
 	@Override
 	public void powerOn() {
 		System.out.println("Lg tv Àü¿ø ÄÒ´Ù.");
-		
 	}
 
 	@Override
 	public void powerOff() {
 		System.out.println("Lg tv Àü¿ø ²ö´Ù.");
-		
 	}
 
 	@Override

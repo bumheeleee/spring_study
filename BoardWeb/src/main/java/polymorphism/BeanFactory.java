@@ -6,9 +6,11 @@ public class BeanFactory {
 		
 		if(beanName.equals("samsung")){
 			return new SamsungTV();
+			
 		}else if(beanName.equals("lg")){
 			return new LgTV();
 		}
+		
 		return null;
 	}
 }

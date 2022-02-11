@@ -2,6 +2,10 @@ package polymorphism;
 
 public class SamsungTV implements TV {
 	
+	public SamsungTV(){
+		System.out.println("伙己tv 按眉 积己.");
+	}
+	
 	public void powerOn(){
 		System.out.println("伙己 tv 傈盔 囊促.");
 	}
