@@ -3,6 +3,7 @@ package polymorphism;
 public class SamsungTV implements TV {
 	
 	private SonySpeaker speaker;
+	private int price;
 	
 	public void ininMethod(){
 		System.out.println("객체 생성 후 멤버변수 초기화 작업....");
@@ -16,14 +17,16 @@ public class SamsungTV implements TV {
 		System.out.println("삼성tv 객체 생성!!");
 	}
 	
-	//생성자 인젝션 이용
-	public SamsungTV(SonySpeaker sonyspeaker){
+	//1. 생성자 인젝션 이용
+	//2. 다수 변수 매핑
+	public SamsungTV(SonySpeaker sonyspeaker, int price){
 		System.out.println("SamsungTV(2)객체생성");
 		this.speaker = sonyspeaker;
+		this.price = price;
 	}
 	
 	public void powerOn(){
-		System.out.println("삼성 tv 전원 켠다.");
+		System.out.println("삼성 tv 전원 켠다. 가격은 : "+ price);
 	}
 	
 	public void powerOff(){

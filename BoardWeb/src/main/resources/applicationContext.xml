@@ -7,6 +7,7 @@
 	<!-- 생성자 인젝션을 하기 위한 xml파일 설정 -->
 	<bean id = "tv" class = "polymorphism.SamsungTV">
 		<constructor-arg ref = "sony"></constructor-arg>
+		<constructor-arg value = "270000"></constructor-arg>
 	</bean>
 	
 	<bean id = "sony" class = "polymorphism.SonySpeaker"></bean>

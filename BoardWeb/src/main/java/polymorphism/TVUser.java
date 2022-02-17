@@ -13,7 +13,6 @@ public class TVUser {
 		
 		//2. spring 컨테이너로부터 필요한 객체를 요청(lookup)한다.
 		TV tv = (TV)factory.getBean("tv");
-		
 		tv.powerOn();
 		tv.powerOff();
 		tv.volumUp();
