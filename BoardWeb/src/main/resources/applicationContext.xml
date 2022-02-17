@@ -2,14 +2,15 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:p="http://www.springframework.org/schema/p"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-
-	<!-- bean엘리먼트에 다양한 속성 -->
-	<!-- 생성자 인젝션을 하기 위한 xml파일 설정 -->
-	<bean id = "tv" 
-		class = "polymorphism.SamsungTV" p:speaker-ref="sony" p:price="2700000">
-	</bean>
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context-4.2.xsd">
 	
-	<bean id = "sony" class = "polymorphism.SonySpeaker"></bean>
-	<bean id = "apple" class = "polymorphism.AppleSpeaker"></bean>
+	<context:component-scan base-package="polymorphism"></context:component-scan>
+	
+	
+	
+	
 </beans>
