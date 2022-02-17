@@ -6,9 +6,8 @@
 	<!-- bean엘리먼트에 다양한 속성 -->
 	<!-- 생성자 인젝션을 하기 위한 xml파일 설정 -->
 	<bean id = "tv" class = "polymorphism.SamsungTV">
-		<!-- 의존관계 변경을 xml설정 파일에서 가능하다. -->
-		<constructor-arg ref = "apple"></constructor-arg>
-		<constructor-arg value = "270000"></constructor-arg>
+		<property name="speaker" ref = "apple"></property>
+		<property name="price" value = "2300000"></property>
 	</bean>
 	
 	<bean id = "sony" class = "polymorphism.SonySpeaker"></bean>
