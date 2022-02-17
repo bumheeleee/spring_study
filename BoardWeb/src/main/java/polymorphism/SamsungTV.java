@@ -2,7 +2,7 @@ package polymorphism;
 
 public class SamsungTV implements TV {
 	
-	private SonySpeaker speaker;
+	private Speaker speaker;
 	private int price;
 	
 	public void ininMethod(){
@@ -17,11 +17,17 @@ public class SamsungTV implements TV {
 		System.out.println("삼성tv 객체 생성!!");
 	}
 	
+	public SamsungTV(Speaker speaker){
+		System.out.println("SamsungTV(2)객체생성");
+		this.speaker = speaker;
+	}
+	
 	//1. 생성자 인젝션 이용
 	//2. 다수 변수 매핑
-	public SamsungTV(SonySpeaker sonyspeaker, int price){
-		System.out.println("SamsungTV(2)객체생성");
-		this.speaker = sonyspeaker;
+	//3. 의존 관계를 스프링 설정파일만 이용해서 관리할 수 있게 만듬
+	public SamsungTV(Speaker speaker, int price){
+		System.out.println("SamsungTV(3)객체생성");
+		this.speaker = speaker;
 		this.price = price;
 	}
 	
