@@ -1,16 +1,14 @@
 package polymorphism;
 
-import javax.annotation.Resource;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component("tv")
 public class LgTV implements TV{
 	
-	//객체의 이름을 이용하여 의존성 주입을 처리한다.
-	@Resource(name = "apple")
+	//1. 주로 변수위에 설정하여 해당 타입의 객체를 찾아서 자동으로 할당한다.
+	//2. 의존성 주입에 사용했던 Setter매소드나 생성자가 필요가 없다.
+	@Autowired
 	private Speaker speaker;
 	
 	public LgTV(){
