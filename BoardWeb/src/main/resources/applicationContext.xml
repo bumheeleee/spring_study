@@ -11,14 +11,21 @@
 	<context:component-scan base-package="com.springbook.biz">
 	</context:component-scan>
 	
-	
-	<bean id ="log" class = "com.springbook.biz.common.Log4jAdvide"></bean>
+	<!-- 조인 포인트 -->
+	<!-- 조인포인트는 클라이언트가 호출하는 모든 비즈니스 메소드를 말한다. -->
+	<bean id ="log" class = "com.springbook.biz.common.LogAdvice"></bean>
 	
 	<aop:config>
 		<aop:pointcut id="allPointcut" 
 					expression="execution(* com.springbook.biz..*Impl.*(..))"/>
+		<!-- 포인트 컷 -->
+		<!-- 포인트컷은 필터링된 조인 포인트를 말한다. -->
+		<aop:pointcut id="getPointcut" 
+					expression="execution(* com.springbook.biz..*Impl.get*(..))"/>
+					
+					
 		<aop:aspect ref = "log">
-			<aop:before pointcut-ref="allPointcut" method="printLogging"/>
+			<aop:before pointcut-ref="getPointcut" method="printLog"/>
 		</aop:aspect>
 	</aop:config>
 	
