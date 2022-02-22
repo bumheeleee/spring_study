@@ -24,8 +24,9 @@
 		<aop:pointcut id="allPointcut" 
 					expression="execution(* com.springbook.biz..*Impl.*(..))"/>
 					
-		<aop:aspect ref = "before">
-			<aop:before pointcut-ref="allPointcut" method="beforeLog"/>
+		<aop:aspect ref = "afterReturning">
+			<aop:after-returning pointcut-ref="allPointcut" method="AfterLog"
+															returning = "returnObj"/>
 		</aop:aspect>
 		
 	</aop:config>
