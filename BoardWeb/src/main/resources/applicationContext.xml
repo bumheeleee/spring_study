@@ -12,14 +12,14 @@
 	</context:component-scan>
 
 	<bean id ="log" class = "com.springbook.biz.common.LogAdvice"></bean>
-	<bean id = "before" class = "com.springbook.biz.common.BeforeAdvice"></bean>
+	<bean id = "afterReturning" class = "com.springbook.biz.common.AfterReturningAdvice"></bean>
 	
 	<aop:config>
 		<aop:pointcut id="allPointcut" 
 					expression="execution(* com.springbook.biz..*Impl.*(..))"/>
 					
-		<aop:aspect ref = "before">
-			<aop:before pointcut-ref="allPointcut" method="beforeLog"/>
+		<aop:aspect ref = "afterReturning">
+			<aop:after-returning pointcut-ref="allPointcut" method="AfterLog"/>
 		</aop:aspect>
 		
 	</aop:config>
