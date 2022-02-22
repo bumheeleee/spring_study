@@ -12,14 +12,14 @@
 	</context:component-scan>
 
 	<bean id ="log" class = "com.springbook.biz.common.LogAdvice"></bean>
-	<bean id = "after" class = "com.springbook.biz.common.AfterAdvice"></bean>
+	<bean id = "around" class = "com.springbook.biz.common.AroundAdvice"></bean>
 	
 	<aop:config>
 		<aop:pointcut id="allPointcut" 
 					expression="execution(* com.springbook.biz..*Impl.*(..))"/>
 		<!-- 예외와 상관없이 비즈니스 로직 수행 후 무조건 동작 -->	
-		<aop:aspect ref = "after">
-			<aop:after pointcut-ref="allPointcut" method="finallyLog"/>
+		<aop:aspect ref = "around">
+			<aop:around pointcut-ref="allPointcut" method="aroundLog"/>
 		</aop:aspect>
 		
 	</aop:config>
