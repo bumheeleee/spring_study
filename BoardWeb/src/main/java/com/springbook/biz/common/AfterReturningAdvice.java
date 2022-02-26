@@ -16,7 +16,7 @@ public class AfterReturningAdvice {
 	public void getPointcut(){}
 	
 	
-	@AfterReturning(pointcut = "getPointcut()", returning = "returnObj")
+	//@AfterReturning(pointcut = "getPointcut()", returning = "returnObj")
 	public void AfterLog(JoinPoint jp, Object returnObj){
 		String method = jp.getSignature().getName();
 		
