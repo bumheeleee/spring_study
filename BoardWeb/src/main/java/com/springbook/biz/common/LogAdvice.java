@@ -14,7 +14,7 @@ public class LogAdvice {
 	@Pointcut("execution(* com.springbook.biz..*Impl.*(..))")
 	public void allPointcut(){}
 	
-	//@Pointcut("execution(* com.springbook.biz..*Impl.get*(..))")
+	@Pointcut("execution(* com.springbook.biz..*Impl.get*(..))")
 	public void getPointcut(){}
 	
 	//@Before("allPointcut()")
