@@ -13,7 +13,7 @@ public class AfterThrowingAdvice {
 	@Pointcut("execution(* com.springbook.biz..*Impl.*(..))")
 	public void allPointcut(){}
 	
-	@AfterThrowing(pointcut = "allPointcut()", throwing = "exceptObj")
+	//@AfterThrowing(pointcut = "allPointcut()", throwing = "exceptObj")
 	public void exceptionLog(JoinPoint jp, Exception exceptObj){
 		
 		String method = jp.getSignature().getName();
