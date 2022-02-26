@@ -24,9 +24,8 @@
 		<aop:pointcut id="allPointcut" 
 					expression="execution(* com.springbook.biz..*Impl.*(..))"/>
 					
-		<aop:aspect ref = "afterThrowing">
-			<aop:after-throwing pointcut-ref="allPointcut" method="exceptionLog"
-															throwing="exceptObj"/>
+		<aop:aspect ref = "aroundAdvice">
+			<aop:around pointcut-ref="allPointcut" method="aroundLog"/>
 		</aop:aspect>
 		
 	</aop:config>
