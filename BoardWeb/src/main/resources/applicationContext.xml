@@ -10,24 +10,8 @@
 	
 	<context:component-scan base-package="com.springbook.biz">
 	</context:component-scan>
-
-	<bean id ="log" class = "com.springbook.biz.common.LogAdvice"></bean>
-	<bean id = "afterReturning" class = "com.springbook.biz.common.AfterReturningAdvice"></bean>
-	<bean id = "afterThrowing" class = "com.springbook.biz.common.AfterThrowingAdvice"></bean>
-	<bean id = "aroundAdvice" class = "com.springbook.biz.common.AroundAdvice"></bean>
-	<bean id = "before" class = "com.springbook.biz.common.BeforeAdvice"></bean>
-	<bean id = "after" class = "com.springbook.biz.common.AfterAdvice"></bean>
 	
 	
-	
-	<aop:config>
-		<aop:pointcut id="allPointcut" 
-					expression="execution(* com.springbook.biz..*Impl.*(..))"/>
-					
-		<aop:aspect ref = "aroundAdvice">
-			<aop:around pointcut-ref="allPointcut" method="aroundLog"/>
-		</aop:aspect>
-		
-	</aop:config>
+	<aop:aspectj-autoproxy></aop:aspectj-autoproxy>
 	
 </beans>
