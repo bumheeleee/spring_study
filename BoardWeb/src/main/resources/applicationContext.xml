@@ -22,6 +22,12 @@
 	</bean>
 	
 	
+	<!--Spring JDBC 설정  -->
+	<bean id = "jdbcTemplate" class = "org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref = "dataSource"/>
+	</bean>
+	
+		
 	<!-- Transaction 설정 -->
 	<!-- 1. 트랜젝션 관리자 등록 -->
 	<bean id = "txManager"
@@ -37,11 +43,14 @@
 		</tx:attributes>
 	</tx:advice>
 	
+	<!-- 3. AOP 설정을 통한 트랜잭션 적용 -->
+	<aop:config>
+		<aop:pointcut id="txPointcut" 
+					expression="execution(* com.springbook.biz..*(..))" />
+					
+		<aop:advisor pointcut-ref="txPointcut" advice-ref="txAdvice"/>
+	</aop:config>
 	
-	<!--Spring JDBC 설정  -->
-	<bean id = "jdbcTemplate" class = "org.springframework.jdbc.core.JdbcTemplate">
-		<property name="dataSource" ref = "dataSource"/>
-	</bean>
 	
 	
 	<context:component-scan base-package="com.springbook.biz">
