@@ -7,6 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.springbook.biz.user.UserVO;
+import com.springbook.biz.user.impl.UserDAO;
+
 
 public class DispatcherServlet extends HttpServlet {
 
@@ -36,6 +39,25 @@ public class DispatcherServlet extends HttpServlet {
 		// 2. 클라이언트의 요청 path에 따라 적절히 분기처리 한다.
 		if (path.equals("/login.do")) {
 			System.out.println("로그인 처리");
+			
+			//1. 사용자 입력 정보 추출
+			String id = request.getParameter("id");
+			String password = request.getParameter("password");
+			
+			//2. DB연동 처리
+			UserVO vo = new UserVO();
+			vo.setId(id);
+			vo.setPassword(password);
+			
+			UserDAO userDAO = new UserDAO();
+			UserVO user = userDAO.getUser(vo);
+
+			//3. 화면 네비게이션
+			if(user != null){
+				response.sendRedirect("getBoardList.jsp");
+			}else{
+				response.sendRedirect("login.jsp");
+			}
 			
 		} else if (path.equals("/logout.do")) {
 			System.out.println("로그아웃 처리");
