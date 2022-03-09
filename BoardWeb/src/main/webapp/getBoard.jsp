@@ -2,16 +2,7 @@
 <%@page import="com.springbook.biz.board.BoardVO"%>
 <%@page contentType="text/html; charset=EUC-KR"%>
 <%
-	// 1. 검색할 게시글 번호 추출
-	String seq = request.getParameter("seq");
-
-	// 2. DB 연동 처리
-	BoardVO vo = new BoardVO();
-	vo.setSeq(Integer.parseInt(seq));
-	BoardDAO boardDAO = new BoardDAO();
-	BoardVO board = boardDAO.getBoard(vo);
-
-	// 3. 응답 화면 구성
+	BoardVO board = (BoardVO)session.getAttribute("board");
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
