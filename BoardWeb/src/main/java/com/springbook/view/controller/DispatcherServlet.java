@@ -45,7 +45,7 @@ public class DispatcherServlet extends HttpServlet {
 		//2. HandlerMapping을 통해 path에 해당하는 Controller를 검색한다.
 		//   key : path, value : Controller
 		Controller ctrl = handlerMapping.getController(path);
-		
+		 
 		//3. 검색된  Controller를 실행한다.
 		String viewName = ctrl.handleRequest(request, response);
 		
