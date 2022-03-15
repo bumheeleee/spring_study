@@ -9,6 +9,7 @@ import com.springbook.view.board.GetBoardListController;
 import com.springbook.view.board.InsertBoardController;
 import com.springbook.view.board.UpdateBoardController;
 import com.springbook.view.user.LoginController;
+import com.springbook.view.user.LogoutController;
 
 public class HandlerMapping {
 	//map은 <key, value>로 값을 지정한다.
@@ -23,6 +24,7 @@ public class HandlerMapping {
 		mappings.put("/insertBoard.do", new InsertBoardController());
 		mappings.put("/updateBoard.do", new UpdateBoardController());
 		mappings.put("/deleteBoard.do", new DeleteBoardController());
+		mappings.put("/logout.do", new LogoutController());
 	}
 	
 	public Controller getController(String path){
