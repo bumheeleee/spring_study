@@ -3,6 +3,15 @@
 		xmlns="http://java.sun.com/xml/ns/javaee" 
 		xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
 				https://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+  <filter>
+  	<filter-name>characterEncoding</filter-name>
+  	<filter-class>org.springframework.web.filter
+  					.CharacterEncodingFilter</filter-class>
+  	<init-param>
+  		<param-name>characterEncoding</param-name>
+  		<url-pattern>*.do</url-pattern>
+  	</init-param>	
+  </filter>
   
   
   <servlet> 	
@@ -13,6 +22,7 @@
   		<param-value>/WEB-INF/config/presentation-layer.xml</param-value>
   	</init-param>
   </servlet>
+ 
    
   <servlet-mapping>
     <servlet-name>action</servlet-name>
