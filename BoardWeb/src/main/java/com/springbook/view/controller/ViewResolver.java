@@ -13,7 +13,8 @@ public class ViewResolver {
 		this.suffix = suffix;
 	}
 	
-	public String getView(String viewName){
+	public String getView(String viewName) {
+		// TODO Auto-generated method stub
 		return prefix + viewName + suffix;
 	}
 	

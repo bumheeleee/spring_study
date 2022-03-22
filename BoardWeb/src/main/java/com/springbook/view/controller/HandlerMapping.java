@@ -12,7 +12,6 @@ import com.springbook.view.user.LoginController;
 import com.springbook.view.user.LogoutController;
 
 public class HandlerMapping {
-	//map은 <key, value>로 값을 지정한다.
 	private Map<String, Controller> mappings;
 	
 	
@@ -27,9 +26,11 @@ public class HandlerMapping {
 		mappings.put("/logout.do", new LogoutController());
 	}
 	
-	public Controller getController(String path){
+
+
+	public Controller getController(String path) {
+		// TODO Auto-generated method stub
 		return mappings.get(path);
-		
 	}
 
 	
